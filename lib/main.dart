@@ -7,7 +7,8 @@ import 'package:travel_app/features/trip/presentation/pages/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
+  await Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
+  // Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
   Hive.registerAdapter(TripModelAdapter());
   await Hive.openBox<TripModel>('trips');
   runApp(ProviderScope(child: const MyApp()));
